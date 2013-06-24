@@ -10,7 +10,7 @@ LogFile="/tmp/$AppName-backup-$DateStamp_$CurrentTime.log"
 IsOK=0
 CmdStatus=""
 BackupPath="/var/backups"
-BackupFileName="`hostname`.$DateStamp.tar"
+BackupFileName="`hostname`.$DateStamp"
 AppDataDir="/var/lib/redis"
 
  find ${BackupPath}/*.tar* -atime +7 -exec rm {} \;
@@ -19,7 +19,7 @@ AppDataDir="/var/lib/redis"
 echo "save" | redis-cli
 LatestCopy=`ls -rt ${AppDataDir} | tail -1`
 sudo cp ${AppDataDir}/${LatestCopy} ${BackupPath}/${LatestCopy}.${DateStamp}; \
-sudo tar -czvf ${BackupPath}/${BackupFileName} -C ${BackupPath} ${LatestCopy}.${DateStamp}; \
+sudo tar -czvf ${BackupPath}/${BackupFileName}.tar -C ${BackupPath} ${LatestCopy}.${DateStamp}; \
 sudo gzip $BackupPath/$BackupFileName
 
 s3cmd put ${BackupPath}/${BackupFileName}.gz s3://backups.kwarter.com/`hostname |cut -d"." -f2`/

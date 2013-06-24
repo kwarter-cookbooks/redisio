@@ -24,6 +24,6 @@ end
 cron "Redis Nightly Backup" do
 	minute "0"
 	hour "2"
-  command "#{node[:redisio][:redisio_backup][:backup_path]}/redis_backup.sh"
+  command "#{node[:redisio][:redisio_backup][:backup_path]}/redisio_backup.sh"
   action :create
 end
