@@ -21,7 +21,7 @@ cookbook_file "#{node[:redisio][:redisio_backup][:backup_path]}/redisio_backup.s
   mode 0755
 end
 
-cron "Redis Nightly Backup" do
+cron "redis_nightly_backup" do
 	minute "0"
 	hour "2"
   command "#{node[:redisio][:redisio_backup][:backup_path]}/redisio_backup.sh"
