@@ -13,7 +13,8 @@ BackupPath="/var/backups"
 BackupFileName="`hostname`.$DateStamp"
 AppDataDir="/var/lib/redis"
 
- find ${BackupPath}/*.tar* -atime +7 -exec rm {} \;
+find ${BackupPath}/*.tar* -atime +7 -exec rm {} \;
+find ${BackupPath}/*.dump* -atime +7 -exec rm {} \;
 
 
 echo "save" | redis-cli
