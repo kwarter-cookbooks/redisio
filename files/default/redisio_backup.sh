@@ -10,7 +10,7 @@ LogFile="/tmp/$AppName-backup-$DateStamp_$CurrentTime.log"
 IsOK=0
 CmdStatus=""
 BackupPath="/var/backups"
-BackupFileName="`hostname`.$DateStamp"
+BackupFileName="`hostname`.$AppName.$DateStamp"
 AppDataDir="/var/lib/redis"
 
 find ${BackupPath}/*.tar* -atime +7 -exec rm {} \;
