@@ -22,4 +22,4 @@ LatestCopy=`ls -rt ${AppDataDir} | tail -1`
 sudo cp ${AppDataDir}/${LatestCopy} ${BackupPath}/${LatestCopy}.${DateStamp}; \
 sudo tar -czvf ${BackupPath}/${BackupFileName}.tar -C ${BackupPath} ${LatestCopy}.${DateStamp}; \
 
-s3cmd put ${BackupPath}/${BackupFileName}.tar s3://backups.kwarter.com/`hostname |cut -d"." -f2`/
+s3cmd put ${BackupPath}/${BackupFileName}.tar s3://backups.kwarter.com/`hostname |cut -d"." -f2`/${AppName}/
