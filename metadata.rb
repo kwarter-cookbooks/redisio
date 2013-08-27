@@ -4,7 +4,7 @@ maintainer_email 'brian.bianco@gmail.com'
 license          'Apache 2.0'
 description      'Installs/Configures redis'
 long_description IO.read(File.join(File.dirname(__FILE__), 'README.md'))
-version          '1.4.4'
+version          '1.4.5'
 %w[ debian ubuntu centos redhat fedora scientific suse amazon].each do |os|
   supports os
 end
@@ -16,4 +16,4 @@ recipe "redisio::enable", "This recipe is used to start the redis instances and 
 recipe "redisio::disable", "this recipe is used to stop the redis instances and disable them in the default run levels"
 recipe "redisio::redis_gem", "this recipe will install the redis ruby gem into the system ruby"
 
-depends "ulimit", ">= 0.1.2"
+depends "ulimit", ">= 0.1.3"

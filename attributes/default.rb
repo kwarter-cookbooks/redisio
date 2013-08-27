@@ -84,5 +84,8 @@ default['redisio']['default_settings'] = {
 
 # The default for this is set inside of the "install" recipe. This is due to the way deep merge handles arrays
 default['redisio']['servers'] = nil
-default[:redisio][:redisio_backup][:backup_path] = "/var/backups"
+default['redisio']['redisio_backup']['backup_path'] = "/var/backups"
+
+# Setting ulimits due to weird behaviors with ubuntu 
+default['redisio']['ulimit'] = "350000"
 
